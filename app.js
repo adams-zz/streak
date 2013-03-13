@@ -36,7 +36,7 @@ app.post('/post', express.bodyParser(), function(req, res){
     console.log("POST!");
     body = req.body.items;
     datalog.dataLog = body;
-});
+ });
 
 
 http.createServer(app).listen(app.get('port'), function(){

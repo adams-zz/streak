@@ -5,3 +5,56 @@ body {
 a {
   color: #00B7FF;
 }
+
+.matchup-container {
+    margin: 10px;
+}
+
+.question {
+    margin-top:40px;
+}
+/*BLOCK 1*/
+.gametime {
+    text-align: center;
+    margin-top:1.2em;
+}
+
+/*BLOCK 2*/
+.sporticon {
+    position: relative;
+}
+
+.sporticon img {
+    position: absolute;
+    height:1.3em;
+    width:1.3em;
+    top:10%;
+    left:30%;
+    /*margin-left:1.2em;*/
+}
+
+.sportname {
+    text-align: center;
+}
+
+/*BLOCK 5*/
+.status p{
+    text-align: center;
+    margin-top:1.2em;
+}
+
+/*BLOCK 7*/
+.heat p{
+    text-align: center;
+    margin-top:1.2em;
+}
+
+.choose {
+    position: relative;
+}
+
+.radio2 {
+    position: absolute;
+    display: block;
+    top: 50px;
+}
