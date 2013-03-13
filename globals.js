@@ -1,1 +1,3 @@
-globals.js
+var dataLog = [];
+
+exports.dataLog = dataLog;

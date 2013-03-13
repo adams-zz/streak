@@ -6,9 +6,12 @@ var express = require('express')
   , app = module.exports = express()
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , datalog = require('./globals');
 
 var app = express();
+
+var body = "";
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -28,14 +31,16 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 
-app.post('/post', function(req, res){
+app.post('/post', express.bodyParser(), function(req, res){
     req.setEncoding();
-    res.writeHead(302);
-    var body = req.body
-    console.log(body);
+    console.log("POST!");
+    body = req.body.items;
+    datalog.dataLog = body;
 });
 
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+exports.body = body;
