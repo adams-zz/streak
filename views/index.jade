@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    div(data-role='page')
+        header(data-role='header')
+            h1= title
+        div(data-role='content')
+            - if(items.length)
+                table(data-role='listview')
+                    - items.forEach(function(item){
+                        thead
+                            tr
+                                td
+                                    h3.question= item['question']
+                        tbody
+                            tr
+                                td
+                                    p.gametime= item['gametime']
+                                    img.(src=item['sporticon'], alt='sporticon', class="sport-icon")
+                                    p= item['sportname']
+                                    div.teamname
+                                        a(href= item['team1url'], title=item['team1'], target='_blank')
+                                            strong= 'Team 1: ' + item['team1full']
+                                    p.teamresult= item['team1result']
+                                    div.status
+                                        a(href= item['statusurl'], title=item['status'], target='_blank')
+                                            strong= 'Status: ' + item['status']
+                                    p.perc= 'Team 1 %: ' + item['team1perc']
+                                    p.heat= 'Heat: ' + item['heat']
+                                    //- p= 'Heat Title: ' + item['heattitle']
+                                    //- p= 'Streak: ' + item['streak']
+                                    //- p= 'Discuss Count: ' + item['discusscount']
+                            tr
+                                td
+                                    div.teamname
+                                        a(href= item['team2url'], title=item['team2'], target='_blank')
+                                            strong= 'Team 2: ' + item['team2full']
+                                    p.teamresult= item['team2result']
+                                    p.perc= 'Team 2 %: ' + item['team2perc']
+                    - })
