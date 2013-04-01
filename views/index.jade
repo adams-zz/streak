@@ -2,53 +2,79 @@ extends layout
 
 block content
     div.container(data-role='page')
-        header(data-role='header')
-            h1= title
-        div(data-role='content')
-            - if(items.length)
-                table(data-role='listview')
-                    - items.forEach(function(item){
-                        thead
-                            tr.row
-                                td.span12
-                                    h4.question= item['question']
-                        tbody
-                            tr.row
-                                td.span12
-                                    p.span1.gametime= item['gametime']
-                                    div.span1.sporticon
-                                        img.sporticon(src=item['sporticon'], alt='sporticon', align="middle")
-                                    div.span3
-                                        a(href= item['team1url'], title=item['team1'], target='_blank')
-                                            strong= 'Team 1: ' + item['team1full']
-                                    p.span1= item['team1result']
-                                    div.span1.status
-                                        a(href= item['statusurl'], title=item['status'], target='_blank')
-                                            p= item['status']
-                                    p.span1= item['team1perc']
-                                    div.span1.heat
-                                        p= item['heat']
-                                    button.span1.btn.pick= 'Pick'
-                                        a(href= "http://streak.espn.go.com/en/" + item['team1pickurl'])
+        div.row-fluid.span12
+            div.span3
+                ul.well.sidebar-nav.span12
+                    li.nav-header
+                        p= "List header"
+                    li.active
+                        a(href="#")
+                            p= "Home"
+                    li
+                        a(href="#")
+                            p= "Library"
+                    li.nav-header
+                        p= "List header"
+                    li.active
+                        a(href="#")
+                            p= "Home"
+                    li
+                        a(href="#")
+                            p= "Library"
+                    li.nav-header
+                        p= "List header"
+                    li.active
+                        a(href="#")
+                            p= "Home"
+                    li
+                        a(href="#")
+                            p= "Library"
 
-                            tr.row
-                                td.span12
-                                    div.span1
-                                    div.span1
-                                        p.sportname= item['sportname']
-                                    div.span3
-                                        a(href= item['team2url'], title=item['team2'], target='_blank')
-                                            strong= 'Team 2: ' + item['team2full']
-                                    p.span1= item['team2result']
-                                    div.span1
-                                    p.span1= item['team2perc']
-                                    div.span1
-                                    button.span1.btn.pick= 'Pick'
-                                        a(href= "http://streak.espn.go.com/en/" + item['team2pickurl'])
-                    - })
+            div(data-role='content').span9
+                - if(items.length)
+                    table(data-role='listview')
+                        - items.forEach(function(item){
+                            thead
+                                tr.row
+                                    td
+                                        h4.question= item['question']
+                            tbody
+                                tr.row
+                                    td
+                                        p.span2.gametime= item['gametime']
+                                        div.span1.sporticon
+                                            img(src=item['sporticon'], alt='sporticon', align="middle")
+                                        div.span4
+                                            a(href= item['team1url'], title=item['team1'], target='_blank')
+                                                strong= 'Team 1: ' + item['team1full']
+                                        p.span1= item['team1result']
+                                        div.span1.status
+                                            a(href= item['statusurl'], title=item['status'], target='_blank')
+                                                p= item['status']
+                                        p.span1= item['team1perc']
+                                        div.span1.heat
+                                            p= item['heat']
+                                        //- a.pick(href= "http://streak.espn.go.com/en/" + item['team1pickurl'])
+                                        //-     p= 'pick'
+                                        form.span1.choose(name="choose")
+                                            input.radio(type="radio", name="pick", href= "http://streak.espn.go.com/en/" + item['team1pickurl'])
+                                                //- a(href= "http://streak.espn.go.com/en/entry?date=20130313/" + item['team1pickurl'])
+                                            input.radio2(type="radio", name="pick", href= "http://streak.espn.go.com/en/" + item['team2pickurl'])
+                                                //- a(href= "http://streak.espn.go.com/en/entry?date=20130313/" + item['team2pickurl'])
 
-                                    //- form.span1.choose(name="choose")
-                                    //-     input.radio(type="checkbox", name="pick", onclick="alert('hey!')")
-                                    //-         a(href= "http://streak.espn.go.com/en/entry?date=20130313/" + item['team1pickurl'])
-                                    //-     input.radio2(type="checkbox", name="pick")
-                                    //-         a(href= "http://streak.espn.go.com/en/entry?date=20130313/" + item['team2pickurl'])
+
+                                tr.row
+                                    td
+                                        div.span2
+                                        div.span1
+                                            p.sportname= item['sportname']
+                                        div.span4
+                                            a(href= item['team2url'], title=item['team2'], target='_blank')
+                                                strong= 'Team 2: ' + item['team2full']
+                                        p.span1= item['team2result']
+                                        div.span1
+                                        p.span1= item['team2perc']
+                                        div.span1
+                                        //- button.span1.btn.pick= 'Pick'
+                                        //-     a(href= "http://streak.espn.go.com/en/" + item['team2pickurl'])
+                        - })

@@ -32,10 +32,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 
 app.post('/post', express.bodyParser(), function(req, res){
-    req.setEncoding();
-    console.log("POST!");
-    body = req.body.items;
-    datalog.dataLog = body;
+    datalog.dataLog = req.body.items;
  });
 
 

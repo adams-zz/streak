@@ -1,9 +1,24 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to top, #FFF 0%, #55AA55 80%, green 100%);
 }
 
 a {
   color: #00B7FF;
+}
+
+thead {
+    background:#eee;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    background: white;
+    padding: 1% 5%;
 }
 
 .matchup-container {
@@ -11,7 +26,7 @@ a {
 }
 
 .question {
-    margin-top:40px;
+    /*margin-top:40px;*/
 }
 /*BLOCK 1*/
 .gametime {

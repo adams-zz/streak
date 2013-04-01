@@ -9,6 +9,24 @@ html
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='http://code.jquery.com/jquery-1.6.2.min.js')
+    script(src='/javascripts/main.js')
     //- script(src='http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b3.min.js')
   body
+    div.navbar.navbar-inverse
+      div.navbar-inner
+        a.brand(href="#")
+            //- p= "Title"
+        ul.nav
+            li.active
+                a(href="#")
+                    p= "Streak"
+            li
+                a(href="#")
+                    p= "About"
+            li
+                a(href="#")
+                    p= "SFTC"
+        p.navbar-text.pull-right
+            a(href="#").navbar-link
+                p= "LoginName"
     block content
